@@ -558,6 +558,8 @@ height: auto;
 .isi-footer p {
     color: #f2f9f1;
     font-size: 15px;
+    margin: 0;
+    text-align: center;
 }
 
 .isi-footer .sosmed-dev ul li a {
@@ -608,4 +610,5 @@ height: auto;
     transform: scale(1.1);
 
 }
+
 
