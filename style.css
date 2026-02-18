@@ -535,9 +535,14 @@ height: auto;
 .footer {
     background-color: #6d8b74;
     margin-bottom: 0px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 
 .isi-footer {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -604,15 +609,12 @@ height: auto;
     .sosmed-dev ul {
         font-size: 30px;
     }
-
-    .isi-footer p {
-    text-align: center;
-    }
 }
 
 .sosmed-dev ul li:hover {
     transform: scale(1.1);
 }
+
 
 
 
