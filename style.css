@@ -609,11 +609,16 @@ height: auto;
     .sosmed-dev ul {
         font-size: 30px;
     }
+
+    .isi-footer p {
+    text-align: center;
+    }
 }
 
 .sosmed-dev ul li:hover {
     transform: scale(1.1);
 }
+
 
 
 
