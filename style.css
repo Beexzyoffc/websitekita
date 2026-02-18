@@ -558,6 +558,7 @@ height: auto;
 .isi-footer p {
     color: #f2f9f1;
     font-size: 18px;
+    text-align: center;
 }
 
 .isi-footer .sosmed-dev ul li a {
@@ -606,4 +607,5 @@ height: auto;
 
 .sosmed-dev ul li:hover {
     transform: scale(1.1);
+
 }
