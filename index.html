@@ -318,7 +318,7 @@
         <li><a href="https://wa.me/6289502187364"><i class="fa-brands fa-whatsapp"></i></a></li>
         <li><a href="https://www.instagram.com/hannsh_13?igsh=MWFvN3E3ZHAyN3RlYg==
 "><i class="fa-brands fa-instagram"></i></a></li>
-        <li><a href="https://github.com/Beexzyoffc"><i class="fa-brands fa-github"></i></a></li>
+        <li><a href="https://t.me/Maxxxzy"><i class="fa-brands fa-telegram"></i></a></li>
         <li><a href="https://youtube.com/@beexzy.official?si=eY-hT4dUksa4EIow
 "><i class="fa-brands fa-youtube"></i></a></li>
       </ul>
@@ -446,8 +446,13 @@ function startMusic() {
     music.play().catch(err => console.log(err));
   }
 }
+      
+window.addEventListener("beforeunload", function () {
+    music.pause();
+    music.currentTime = 0;
 
   </script>
   <script src="https://kit.fontawesome.com/acd4d4a991.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
