@@ -439,24 +439,25 @@ window.addEventListener("load", function () {
 
 const music = document.getElementById("bgm");
 
-// Start music saat user interaksi
-document.addEventListener("touchstart", startMusic);
-document.addEventListener("click", startMusic);
-
-function startMusic() {
+// Fungsi play
+function playMusic() {
   if (music.paused) {
     music.play().catch(err => console.log(err));
   }
 }
 
-// Stop saat pindah tab
+// Klik & sentuh selalu bisa play
+document.addEventListener("click", playMusic);
+document.addEventListener("touchstart", playMusic);
+
+// Jika pindah tab → pause saja (jangan reset time)
 document.addEventListener("visibilitychange", function () {
   if (document.hidden) {
     music.pause();
   }
 });
 
-// Stop saat refresh / close
+// Jika benar-benar keluar / refresh → reset
 window.addEventListener("beforeunload", function () {
   music.pause();
   music.currentTime = 0;
@@ -466,6 +467,7 @@ window.addEventListener("beforeunload", function () {
 </body>
 
 </html>
+
 
 
 
