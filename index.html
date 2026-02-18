@@ -430,7 +430,7 @@ function type() {
 
 type();
 
-      // music
+      // music & home
 history.scrollRestoration = "manual";
 
 window.addEventListener("load", function () {
@@ -446,6 +446,10 @@ function startMusic() {
   if (music.paused) {
     music.play().catch(err => console.log(err));
   }
+    window.addEventListener("unload", function () {
+    music.pause();
+    music.currentTime = 0;
+});
 }
 
   </script>
@@ -453,4 +457,5 @@ function startMusic() {
 </body>
 
 </html>
+
 
