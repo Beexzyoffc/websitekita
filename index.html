@@ -439,12 +439,18 @@ window.addEventListener("load", function () {
 
 const music = document.getElementById("bgm");
 
+// Cegah autoplay ulang setelah refresh
+if (sessionStorage.getItem("musicDisabled")) {
+  music.pause();
+  music.currentTime = 0;
+}
+
 // Start music saat user interaksi
 document.addEventListener("touchstart", startMusic, { once: true });
 document.addEventListener("click", startMusic, { once: true });
 
 function startMusic() {
-  if (music.paused) {
+  if (music.paused && !sessionStorage.getItem("musicDisabled")) {
     music.play().catch(err => console.log(err));
   }
 }
@@ -453,11 +459,11 @@ function startMusic() {
 function stopMusic() {
   music.pause();
   music.currentTime = 0;
+  sessionStorage.setItem("musicDisabled", "true");
 }
 
-// Saat refresh / close
+// Saat refresh / close tab
 window.addEventListener("beforeunload", stopMusic);
-window.addEventListener("unload", stopMusic);
 
 // Saat pindah tab
 document.addEventListener("visibilitychange", function () {
@@ -470,6 +476,7 @@ document.addEventListener("visibilitychange", function () {
 </body>
 
 </html>
+
 
 
 
