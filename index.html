@@ -439,43 +439,34 @@ window.addEventListener("load", function () {
 
 const music = document.getElementById("bgm");
 
-// Cegah autoplay ulang setelah refresh
-if (sessionStorage.getItem("musicDisabled")) {
-  music.pause();
-  music.currentTime = 0;
-}
-
 // Start music saat user interaksi
-document.addEventListener("touchstart", startMusic, { once: true });
-document.addEventListener("click", startMusic, { once: true });
+document.addEventListener("touchstart", startMusic);
+document.addEventListener("click", startMusic);
 
 function startMusic() {
-  if (music.paused && !sessionStorage.getItem("musicDisabled")) {
+  if (music.paused) {
     music.play().catch(err => console.log(err));
   }
 }
 
-// Fungsi stop
-function stopMusic() {
-  music.pause();
-  music.currentTime = 0;
-  sessionStorage.setItem("musicDisabled", "true");
-}
-
-// Saat refresh / close tab
-window.addEventListener("beforeunload", stopMusic);
-
-// Saat pindah tab
+// Stop saat pindah tab
 document.addEventListener("visibilitychange", function () {
   if (document.hidden) {
-    stopMusic();
+    music.pause();
   }
+});
+
+// Stop saat refresh / close
+window.addEventListener("beforeunload", function () {
+  music.pause();
+  music.currentTime = 0;
 });
   </script>
   <script src="https://kit.fontawesome.com/acd4d4a991.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
+
 
 
 
