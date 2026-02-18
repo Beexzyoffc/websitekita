@@ -430,6 +430,7 @@ function type() {
 
 type();
 
+      // music
 history.scrollRestoration = "manual";
 
 window.addEventListener("load", function () {
@@ -446,13 +447,10 @@ function startMusic() {
     music.play().catch(err => console.log(err));
   }
 }
-      
-window.addEventListener("beforeunload", function () {
-    music.pause();
-    music.currentTime = 0;
 
   </script>
   <script src="https://kit.fontawesome.com/acd4d4a991.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
+
