@@ -430,32 +430,46 @@ function type() {
 
 type();
 
-      // music & home
+// music & home
 history.scrollRestoration = "manual";
 
 window.addEventListener("load", function () {
   window.scrollTo(0, 0);
 });
 
+const music = document.getElementById("bgm");
+
+// Start music saat user interaksi
 document.addEventListener("touchstart", startMusic, { once: true });
 document.addEventListener("click", startMusic, { once: true });
 
 function startMusic() {
-  const music = document.getElementById("bgm");
-
   if (music.paused) {
     music.play().catch(err => console.log(err));
   }
-    window.addEventListener("unload", function () {
-    music.pause();
-    music.currentTime = 0;
-});
 }
 
+// Fungsi stop
+function stopMusic() {
+  music.pause();
+  music.currentTime = 0;
+}
+
+// Saat refresh / close
+window.addEventListener("beforeunload", stopMusic);
+window.addEventListener("unload", stopMusic);
+
+// Saat pindah tab
+document.addEventListener("visibilitychange", function () {
+  if (document.hidden) {
+    stopMusic();
+  }
+});
   </script>
   <script src="https://kit.fontawesome.com/acd4d4a991.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
+
 
 
